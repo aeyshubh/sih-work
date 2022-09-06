@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<!
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/adminStyle.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+
+                    <a href="/" class="nav-brand text-dark">User Management System</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- main site -->
+    <main class="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add_user" class="border-shadow">
+                    <span class="text-gradient">Edit Details <i class="fa-solid fa-user"></i></span>
+                     
+                </a>    
+            </div>
+
+            <!--form handling -->
+            <h1><%  %></h1>
+
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Change On</th>
+                            <th>Request</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i = 0; i < users.length; i++) { 
+                           <!--  if(users[i].request.length != 0){
+                                continue;
+                            }
+                            %> -->
+                            <tr>
+                                <td><%= i + 1 %></td>
+                                <td><%= users[i].name %></td>
+                                <td><%= users[i].change_on %></td>
+                                <td>
+                                    <table>
+                                        <% for(var j = 0; j < users[i].request.length; j++) { 
+                                            <% if(users[i].request[j].status === 'pending') { %>
+                                            <tr>
+
+                                                <td><%=users[i].request[j].field; %></td>
+                                                <td><%=users[i].request[j].value %></td>
+                                                <td><%=users[i].request[j].status %></td>
+
+                                                <td><a href="/update-user/<%= users[i]._id%>/<%= users[i].request[j]._id%>" class="btn border-shadow update">
+                                                    <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+                                                </a></td>
+                                                <td><a class="btn border-shadow delete" data-id=<%= users[i]._id%> >
+                                                    <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                                </a></td>
+                                                
+                                            </tr>
+                                            
+                                            
+                                            <% }%>    
+                                        <% }%>
+                                    } %>
+                                    </table>
+                                </td>
+                                <td><%= users[i].image %></td>
+                                <td><%= users[i].action %></td>
+                        
+                        
+                                
+                                <!-- <td>
+                                    
+                                </td> -->
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+
+</body>
+
+</html>

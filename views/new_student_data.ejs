@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Data Verification</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/img/favicon.png" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="/css/sverification-style.css" rel="stylesheet">
+
+    <script>  
+function favTutorial(){  
+    var mylist = document.getElementById("myList"); 
+    var mylist2 = document.getElementById("myList2"); 
+     
+    document.getElementById("tb1").value = mylist.options[mylist.selectedIndex].text;
+    document.getElementById("tb2").value = mylist2.options[mylist2.selectedIndex].text;
+   /*  console.log(college_name);
+    console.log(role); */
+
+  
+    
+    }  
+    
+      </script>  
+
+  <!-- =======================================================
+  * Template Name: Rapid - v4.7.1
+  * Template URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+      
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html">Rapid</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#FAQ">FAQ</a></li>
+          <li><a class="nav-link scrollto " href="#footer">Data Verification</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+		  <li><a class="nav-link scrollto" href="#">Edit Profile</a></li>
+		  <a href="#" class="get-started-btn">Log Out<div class = "ll"></div> </a>
+		  </ul>
+		  </div>
+		
+		
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Data Verification</li>
+        </ol>
+        <h2>Data Verification</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page pt-4">
+      <div class="container">
+        <p>
+          Welcome user! <br> Verify the information given.
+        </p>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="section-bg">
+    <div class="footer-top">
+      <div class="container">
+	  <div class="col-lg-12">
+		<div class="row">
+
+				<div class="col-sm-3">
+                <div class="footer-info">
+                  <h3>Verification</h3>
+                  <p>Go through all the information of you provided to us by your school. </p>
+                </div>
+				
+              </div>
+
+          <div class="col-sm-9 col-12">
+              <h4>Information</h4>
+					<table style="width:100%">
+						<tr>
+							<th>Name</th>
+							<td><%= data.name %></td>
+						</tr>
+						<tr>
+							<th>Adhar Number</th>
+							<td><%= data.aadhar %></td>
+						</tr>
+            <tr>
+							<th>Pan Number</th>
+							<td><%= data.pan_number %></td>
+						</tr>
+            <tr>
+							<th>Bank Name</th>
+							<td><%= data.bank_name %></td>
+						</tr>
+						<tr>
+							<th>Bank Account Number</th>
+							<td><%= data.aadhar_linked_account %></td>
+						</tr>
+					
+            <tr id="hide1">
+              <th>Select College Name:</th>
+              <td>
+                <form action="/api/users/updateVerification" method="post">
+
+            <select id = "myList" onchange = "favTutorial()" >  
+              <option> ---Choose College--- </option>  
+              <option>New L.J College</option>  
+              <option>Nirma University</option>  
+              <option>Pavaai College </option>  
+              <option>Gladatiars University</option>  
+              </select>
+            </td>  
+            </tr>
+            <tr id="hide2">
+							<th>Role</th>
+							<td><select id = "myList2" onchange = "favTutorial()" >  
+                <option> ---Choose Role --- </option>  
+                <option>Student</option>  
+                <option>Faculty</option>    
+                </select>  </td>
+						</tr>
+            <input type="text" id="tb1" name="college_name" value="" placeholder="College Name">
+            <input type="text" id="tb2" name="role" value="" placeholder="Eg:Student">            
+                        <tr>
+							<th>Verification Status</th>
+							<td><%= data.v_status %></td>
+						</tr>
+
+                        
+					</table>
+
+          </div>
+		  <div class="col-sm-9 col-12" style="margin-left: 27%">
+		  <h6> Do you agree that the above mentioned details correct as per your knowledge ?
+            <button type="submit" onclick="alert('Thank You,Your details are Submitted.')" class="agree-btn">Yes, I agree</button>
+         </form>
+		 
+		  </h6>
+		  <br>
+		  </div>
+		</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!--<div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>Rapid</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Rapid
+      -->
+        <!-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer> --> <!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="/vendor/purecounter/purecounter.js"></script>
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="/js/main.js"></script>
+
+</body>
+
+</html>

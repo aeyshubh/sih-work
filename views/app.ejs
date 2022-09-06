@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+console.log("Hello");
+const createPDF = async () => {
+	const browser = await puppeteer.launch();
+	const page = await browser.newPage();
+	const options = {
+		path: 'pdf/web.pdf',
+		format: 'A4',
+	};
+	
+	await page.goto('c:\\pdf\\letter.html', { waitUntil: 'networkidle2' });
+	await page.pdf(options);
+	
+	await browser.close();
+};
+
+createPDF();
+</script>

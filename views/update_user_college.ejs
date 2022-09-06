@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update user</title>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css"></link> 
+    
+</head>
+
+<body>
+    
+    <!-- main site -->
+    <main class="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/" class="border-shadow">
+                    <span class="text-gradient"><i class="fa-solid fa-angles-left"></i>All users</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update User</h2>
+            <span class="text-light">Use the below form to Update user</span>
+        </div>  
+       <!--Form data-->
+       <form action="/api/users" method="POST" id="update_user">
+        <div class="new_user">
+            <div class="form-group">
+                <label for="name" class="text-light">Name</label>
+                <input type="hidden" name="id" value="<%= user._id %>">
+                <input type="text" name="name" value="<%= user.name %>" placeholder="Mark Stoenis">
+            </div>
+            <div class="form-group">
+                <label for="Email" class="text-light">Aadhar</label>
+                <input type="text" name="email" value="<%= user.aadhar %>" placeholder="example@gmail.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="Email" class="text-light">Bank Name</label>
+                <input type="text" name="email" value="<%= user.bank_name %>" placeholder="example@gmail.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="Email" class="text-light">Account Number</label>
+                <input type="text" name="email" value="<%= user.aadhar_linked_account %>" placeholder="example@gmail.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="Email" class="text-light">Pan Number</label>
+                <input type="text" name="email" value="<%= user.pan_number %>" placeholder="example@gmail.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="gender" class="text-light">Verification Status</label>
+                <div class="radio inline">
+                    <input type="radio" id="radio-4" name="status" value="Active"<%= user.v_status =='True'?'checked':''%> >
+                    <label for="radio-4" class="radio-label">Active</label>
+                </div>
+                <div class="radio inline">
+                    <input type="radio" id="radio-5" name="status" value="Inactive" <%= user.status =='False'?'checked':''%>>
+                    <label for="radio-5" class="radio-label">Inactive</label>
+                </div>
+            </div>
+    
+            <div class="form-group">
+                <button type="submit" class="btn text-dark update">Save</button>
+            </div>
+    
+        </div>
+        </form>
+
+        </div>
+    </main>
+
+</body>
+
+</html> 

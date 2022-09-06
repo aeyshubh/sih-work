@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Data Updation</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="/img/favicon.png" rel="icon">
+  <link href="/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="/vendor/aos/aos.css" rel="stylesheet">
+  <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="css/supdationfield-style.css" rel="stylesheet">
+  <!-- =======================================================
+  * Template Name: Rapid - v4.7.1
+  * Template URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <script>
+
+function fieldselect(src)
+	{
+			window.location=src;
+	}
+  
+  function NameValidate() {
+    var regName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+var name = document.getElementById('name').value;
+if(!regName.test(name)){
+    alert('Please enter valid full name (first & last name).');
+    return false;
+}else{
+    alert('Valid name given.');
+    return true;
+}
+}
+	
+	
+  </script>
+  
+  
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center ">
+    <div class="container d-flex align-items-center">
+
+      <h1 class="logo me-auto"><a href="index.html">Rapid</a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#FAQ">FAQ</a></li>
+          <li><a class="nav-link scrollto " href="student-verification.html">Data Verification</a></li>
+          <li><a class="nav-link scrollto" href="#footer">Data Updation</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+		  <li><a class="nav-link scrollto" href="#">Edit Profile</a></li>
+		  <a href="courses.html" class="get-started-btn">Log Out<div class = "ll"></div> </a>
+		  </ul>
+		  </div>
+		
+		
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Data Updation</li>
+        </ol>
+        <h2>Data Updation</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page pt-4">
+      <div class="container">
+        <p>
+          Welcome user! <br> Provide the correct details for the given fields.
+        </p>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="section-bg">
+    <div class="footer-top">
+      <div class="container">
+	  <div class="col-lg-12">
+		<div class="row">
+
+				<div class="col-sm-3">
+                <div class="footer-info">
+                  <h3>Updation</h3>
+                  <p>Insert neccessary information for the required fields to update.</p>
+                </div>
+				
+              </div>
+              <form action="/api/users/update" method="post" id="sendRequest">
+
+          <div class="col-sm-9 col-3">
+              <h4>Choose the field you want to update.</h4>
+					<table style="width:100%">
+						<tr>
+							<th>Changes needs to be made on:</th>
+							<td><div class="dropdown">
+							<select id="field" class="dropbtn" onchange="fieldselect(this.value)">
+							<div class="dropdown-content">
+								<option disabled selected>--Select Field--</option>
+								<option value="/student_upd_name" selected>Name</option>
+								<option value="/student_data_upd">Adhar Number</option>
+								<option value="/student_upd_bank">Bank Name</option>
+								<option value="/student_upd_bankno">Bank Account Number</option>
+								<option value="/student_upd_pan">Pan Number</option>
+							</div>
+							</div></td>
+						</tr>
+						<div class="col-sm-6 col-12">
+						<tr>
+							<th>Enter New Name:</th>
+							<td><input type="text" name="cmntxt" id="name" onblur="NameValidate();"></td>
+						</tr>
+
+            <tr>
+							<th>Upload Aadhar Card in PNG/JPG/JPEG:</th>
+							<td><input type="file" name="cmnimg" accept="image/png, image/jpeg"></td>
+						</tr>
+						</div>
+
+						</div>
+						
+					</table>
+				</div>
+				
+			<div class="col-sm-9 col-12">
+				<button type="submit" onclick="alert('Your details are Updated.')" class="save-btn">Save</button>
+      </form>
+				<button type="button" class="cancel-btn">Cancel</button>
+			</div>
+		</div>
+        </div>
+      </div>
+    </div>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
